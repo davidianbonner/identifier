@@ -3,19 +3,19 @@
 namespace DBonner\Identifier;
 
 use Assert\Assertion;
-use DBonner\Identifier\Types\Base62;
 use DBonner\Identifier\Contracts\AbstractIdentifier;
 use DBonner\Identifier\Contracts\IdentifierInterface;
+use DBonner\Identifier\Types\Base62;
 
 class Base62Identifier extends AbstractIdentifier implements IdentifierInterface
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $value;
 
     /**
-     * Create a new UserId
+     * Create a new UserId.
      *
      * @return void
      */
@@ -26,7 +26,7 @@ class Base62Identifier extends AbstractIdentifier implements IdentifierInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function fromString($string)
     {
@@ -36,7 +36,7 @@ class Base62Identifier extends AbstractIdentifier implements IdentifierInterface
     }
 
     /**
-     * Return the identifier as a string
+     * Return the identifier as a string.
      *
      * @return string
      */
