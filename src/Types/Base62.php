@@ -5,7 +5,7 @@ namespace DBonner\Identifier\Types;
 class Base62
 {
     /**
-     * Get the character pool for encryption
+     * Get the character pool for encryption.
      *
      * @return string
      */
@@ -15,11 +15,12 @@ class Base62
     }
 
     /**
-     * Base62 manager
+     * Base62 manager.
      *
      * Influence by ZackKitzmiller\Tiny
      *
-     * @param  mixed  $id
+     * @param mixed $id
+     *
      * @return string
      */
     public static function toBase62($id)
@@ -38,7 +39,7 @@ class Base62
             $r = $id % $radix;
 
             // Get the character at pool at the position of $r, append to the hex
-            $hexn = $pool{$r} . $hexn;
+            $hexn = $pool[$r].$hexn;
 
             // subtract the id from the modulus and divide by radix
             $id = ($id - $r) / $radix;
@@ -52,9 +53,10 @@ class Base62
     }
 
     /**
-     * From base62
+     * From base62.
      *
-     * @param  string $str
+     * @param string $str
+     *
      * @return mixed
      */
     public static function fromBase62($str)
@@ -73,14 +75,14 @@ class Base62
 
         // Decode each character
         for ($i = 0; $i < $strlen; $i++) {
-            $n += strpos($set, $str{$i}) * pow($radix, ($strlen - $i - 1));
+            $n += strpos($set, $str[$i]) * pow($radix, ($strlen - $i - 1));
         }
 
         return $n;
     }
 
     /**
-     * Generate a v4 UUID
+     * Generate a v4 UUID.
      *
      * @return string
      */
@@ -97,7 +99,7 @@ class Base62
             $bytes = openssl_random_pseudo_bytes(16);
         } else {
             for ($i = 1; $i <= $length; $i++) {
-                $bytes = chr(mt_rand(0, 255)) . $bytes;
+                $bytes = chr(mt_rand(0, 255)).$bytes;
             }
         }
 
@@ -116,7 +118,7 @@ class Base62
         $clockSeqHi &= ~(0xc0);
         $clockSeqHi |= 0x80;
 
-        $fields = array(
+        $fields = [
             // 32 bits for "time_low"
             'time_low'                  => substr($hash, 0, 8),
 
@@ -136,14 +138,14 @@ class Base62
 
             // 48 bits for "node"
             'node'                      => substr($hash, 20, 12),
-        );
+        ];
 
         // Return a formatted string
         return vsprintf('%08s-%04s-%04s-%02s%02s-%012s', $fields);
     }
 
     /**
-     * Legacy v4 method without openssl
+     * Legacy v4 method without openssl.
      *
      * @return string
      */

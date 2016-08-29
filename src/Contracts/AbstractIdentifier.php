@@ -2,27 +2,27 @@
 
 namespace DBonner\Identifier\Contracts;
 
-use DBonner\Identifier\Contracts\IdentifierInterface;
-
 abstract class AbstractIdentifier implements IdentifierInterface
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $value;
 
     /**
-     * Creates an identifier object from a string
+     * Creates an identifier object from a string.
      *
      * @param  $string
+     *
      * @return Identifier
      */
     abstract public static function fromString($string);
 
     /**
-     * Determine equality with another Value Object
+     * Determine equality with another Value Object.
      *
      * @param Identifier $other
+     *
      * @return bool
      */
     public function equals(IdentifierInterface $other)
@@ -31,7 +31,7 @@ abstract class AbstractIdentifier implements IdentifierInterface
     }
 
     /**
-     * Return the identifier as a string
+     * Return the identifier as a string.
      *
      * @return string
      */
@@ -41,7 +41,7 @@ abstract class AbstractIdentifier implements IdentifierInterface
     }
 
     /**
-     * Return the identifier as a string
+     * Return the identifier as a string.
      *
      * @return string
      */
