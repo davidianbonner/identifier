@@ -5,7 +5,7 @@ namespace DBonner\Identifier\Types;
 class Base62
 {
     /**
-     * Get the character pool for encryption
+     * Get the character pool for encryption.
      *
      * @return string
      */
@@ -15,11 +15,12 @@ class Base62
     }
 
     /**
-     * Base62 manager
+     * Base62 manager.
      *
      * Influence by ZackKitzmiller\Tiny
      *
-     * @param  mixed  $id
+     * @param mixed $id
+     *
      * @return string
      */
     public static function toBase62($id)
@@ -38,7 +39,7 @@ class Base62
             $r = $id % $radix;
 
             // Get the character at pool at the position of $r, append to the hex
-            $hexn = $pool{$r} . $hexn;
+            $hexn = $pool[$r].$hexn;
 
             // subtract the id from the modulus and divide by radix
             $id = ($id - $r) / $radix;
@@ -52,9 +53,10 @@ class Base62
     }
 
     /**
-     * From base62
+     * From base62.
      *
-     * @param  string $str
+     * @param string $str
+     *
      * @return mixed
      */
     public static function fromBase62($str)
@@ -73,7 +75,7 @@ class Base62
 
         // Decode each character
         for ($i = 0; $i < $strlen; $i++) {
-            $n += strpos($set, $str{$i}) * pow($radix, ($strlen - $i - 1));
+            $n += strpos($set, $str[$i]) * pow($radix, ($strlen - $i - 1));
         }
 
         return $n;
