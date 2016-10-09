@@ -19,6 +19,16 @@ abstract class AbstractIdentifier implements IdentifierInterface
     abstract public static function fromString($string);
 
     /**
+     * Return the raw value
+     *
+     * @return mixed
+     */
+    public function raw()
+    {
+        return $this->value;
+    }
+
+    /**
      * Determine equality with another Value Object.
      *
      * @param Identifier $other
