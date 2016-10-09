@@ -11,7 +11,13 @@ class Base62
      */
     protected static function base62Pool()
     {
-        return '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $pool = env('BASE62_POOL');
+
+        if (!$pool) {
+            $pool = '2JvJLgKOlKw0SsTBVuF9xFGFbUeubIq3bEfRQskcXcaIN0P0LFS2bh3h6UGXua';
+        }
+
+        return $pool;
     }
 
     /**
