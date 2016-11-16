@@ -37,9 +37,7 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
      */
     public static function fromString($string)
     {
-        return new static(
-            $this->prime->decode($string)
-        );
+        return new static(self::primeInstance()->decode($string));
     }
 
     /**
@@ -57,7 +55,7 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
      *
      * @return Jenssegers\Optimus\Optimus
      */
-    protected function primeInstance()
+    protected static function primeInstance()
     {
         return new Optimus(
             env('IDENTIFIER_PRIME'),
