@@ -62,7 +62,7 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
         return new Optimus(
             env('IDENTIFIER_PRIME'),
             env('IDENTIFIER_INVERTED'),
-            env('IDENTIFIER_RANDOM'),
+            env('IDENTIFIER_RANDOM')
         );
     }
 }
