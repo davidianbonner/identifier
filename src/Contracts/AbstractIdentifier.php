@@ -19,7 +19,7 @@ abstract class AbstractIdentifier implements IdentifierInterface
     abstract public static function fromString($string);
 
     /**
-     * Return the raw value
+     * Return the raw value.
      *
      * @return mixed
      */

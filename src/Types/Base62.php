@@ -14,7 +14,7 @@ class Base62
         $pool = env('BASE62_POOL');
 
         if (!$pool) {
-            $pool = '2JvJLgKOlKw0SsTBVuF9xFGFbUeubIq3bEfRQskcXcaIN0P0LFS2bh3h6UGXua';
+            $pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         }
 
         return $pool;
