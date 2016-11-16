@@ -12,7 +12,7 @@ class IlluminatePrimeIdentifier extends PrimeIdentifier
      *
      * @return Jenssegers\Optimus\Optimus
      */
-    protected function primeInstance()
+    protected static function primeInstance()
     {
         return app(Optimus::class);
     }
