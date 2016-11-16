@@ -28,7 +28,7 @@ class LaravelServiceProvider extends ServiceProvider
             return new Optimus(
                 env('IDENTIFIER_PRIME'),
                 env('IDENTIFIER_INVERTED'),
-                env('IDENTIFIER_RANDOM'),
+                env('IDENTIFIER_RANDOM')
             );
         });
     }
