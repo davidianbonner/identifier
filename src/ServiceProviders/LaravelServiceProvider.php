@@ -26,9 +26,9 @@ class LaravelServiceProvider extends ServiceProvider
     {
         $this->app->bind(Optimus::class, function ($app) {
             return new Optimus(
-                env('IDENTIFIER_PRIME'),
-                env('IDENTIFIER_INVERTED'),
-                env('IDENTIFIER_RANDOM')
+                config('identifier.prime_identifier'),
+                config('identifier.prime_inverted'),
+                config('identifier.prime_random')
             );
         });
     }
