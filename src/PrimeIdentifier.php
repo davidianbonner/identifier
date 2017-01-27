@@ -58,9 +58,9 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
     protected static function primeInstance()
     {
         return new Optimus(
-            env('IDENTIFIER_PRIME'),
-            env('IDENTIFIER_INVERTED'),
-            env('IDENTIFIER_RANDOM')
+            config('identifier.prime_identifier'),
+            config('identifier.prime_inverted'),
+            config('identifier.prime_random')
         );
     }
 }
