@@ -47,7 +47,10 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
      */
     public function toString()
     {
-        return $this->prime->encode($this->value);
+        // Optimus returns an integer and __toString()
+        // requires a string be returned.
+
+        return (string) $this->prime->encode($this->value);
     }
 
     /**
