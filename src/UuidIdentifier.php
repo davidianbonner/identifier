@@ -22,7 +22,7 @@ class UuidIdentifier extends AbstractIdentifier implements IdentifierInterface
     public function __construct($value)
     {
         Assertion::string($value);
-        Assertion::length(36);
+        Assertion::length($value, 36);
         $this->value = $value;
     }
 
