@@ -51,6 +51,6 @@ class UuidIdentifier extends AbstractIdentifier implements IdentifierInterface
      */
     public static function generate()
     {
-        return new static(Uuid::uuid4());
+        return new static(Uuid::uuid4()->toString());
     }
 }
