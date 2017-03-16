@@ -5,7 +5,7 @@ namespace DBonner\Identifier\ServiceProviders;
 use Jenssegers\Optimus\Optimus;
 use Illuminate\Support\ServiceProvider;
 
-class LaravelServiceProvider extends ServiceProvider
+class IdentifierServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.

@@ -5,7 +5,7 @@ namespace DBonner\Identifier\Contracts;
 abstract class AbstractIdentifier implements IdentifierInterface
 {
     /**
-     * @var int
+     * @var mixed
      */
     protected $value;
 
@@ -16,28 +16,9 @@ abstract class AbstractIdentifier implements IdentifierInterface
      *
      * @return Identifier
      */
-    abstract public static function fromString($string);
-
-    /**
-     * Return the raw value.
-     *
-     * @return mixed
-     */
-    public function raw()
+    public static function fromString($string)
     {
-        return $this->value;
-    }
-
-    /**
-     * Determine equality with another Value Object.
-     *
-     * @param Identifier $other
-     *
-     * @return bool
-     */
-    public function equals(IdentifierInterface $other)
-    {
-        return $this == $other;
+        return new static($string);
     }
 
     /**

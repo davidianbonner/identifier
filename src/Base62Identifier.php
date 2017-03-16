@@ -10,11 +10,6 @@ use DBonner\Identifier\Types\Base62;
 class Base62Identifier extends AbstractIdentifier implements IdentifierInterface
 {
     /**
-     * @var int
-     */
-    protected $value;
-
-    /**
      * Create a new UserId.
      *
      * @return void
@@ -28,11 +23,9 @@ class Base62Identifier extends AbstractIdentifier implements IdentifierInterface
     /**
      * {@inheritdoc}
      */
-    public static function fromString($string)
+    public static function decode($string)
     {
-        return new static(
-            Base62::fromBase62($string)
-        );
+        return new static(Base62::fromBase62($string));
     }
 
     /**
@@ -40,8 +33,8 @@ class Base62Identifier extends AbstractIdentifier implements IdentifierInterface
      *
      * @return string
      */
-    public function toString()
+    public function encode()
     {
-        return (string) Base62::toBase62($this->value);
+        return Base62::toBase62($this->value);
     }
 }

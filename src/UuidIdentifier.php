@@ -10,11 +10,6 @@ use DBonner\Identifier\Contracts\IdentifierInterface;
 class UuidIdentifier extends AbstractIdentifier implements IdentifierInterface
 {
     /**
-     * @var int
-     */
-    protected $value;
-
-    /**
      * Create a new UserId.
      *
      * @return void
@@ -24,24 +19,6 @@ class UuidIdentifier extends AbstractIdentifier implements IdentifierInterface
         Assertion::string($value);
         Assertion::length($value, 36);
         $this->value = $value;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function fromString($string)
-    {
-        return new static($string);
-    }
-
-    /**
-     * Return the identifier as a string.
-     *
-     * @return string
-     */
-    public function toString()
-    {
-        return (string) $this->value;
     }
 
     /**

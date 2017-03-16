@@ -10,11 +10,6 @@ use DBonner\Identifier\Contracts\IdentifierInterface;
 class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
 {
     /**
-     * @var int
-     */
-    protected $value;
-
-    /**
      * @var Jenssegers\Optimus\Optimus
      */
     protected $prime;
@@ -26,8 +21,6 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
      */
     public function __construct($value)
     {
-        $this->prime = $this->primeInstance();
-
         Assertion::integer($value);
         $this->value = $value;
     }
@@ -35,7 +28,7 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
     /**
      * {@inheritdoc}
      */
-    public static function fromString($string)
+    public static function decode($string)
     {
         return new static(self::primeInstance()->decode($string));
     }
@@ -45,12 +38,9 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
      *
      * @return string
      */
-    public function toString()
+    public function encode()
     {
-        // Optimus returns an integer and __toString()
-        // requires a string be returned.
-
-        return (string) $this->prime->encode($this->value);
+        return self::primeInstance()->encode($this->value);
     }
 
     /**
@@ -60,10 +50,6 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
      */
     protected static function primeInstance()
     {
-        return new Optimus(
-            config('identifier.prime_identifier'),
-            config('identifier.prime_inverted'),
-            config('identifier.prime_random')
-        );
+        return app(Optimus::class);
     }
 }
