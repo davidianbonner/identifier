@@ -1,6 +1,6 @@
 <?php
 
-namespace DBonner\Identifier\ServiceProviders;
+namespace DBonner\Identifier;
 
 use Jenssegers\Optimus\Optimus;
 use Illuminate\Support\ServiceProvider;
