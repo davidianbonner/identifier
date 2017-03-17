@@ -44,6 +44,8 @@ trait HasObfuscatedIds
      */
     public function getObfuscatedKey($key = null)
     {
-        return PrimeId::fromString($key ? $this->getAttribute($key) : $this->getKey())->encode();
+        $key = $key ? $this->getAttribute($key) : $this->getKey();
+
+        return PrimeId::instance((integer) $key)->encode();
     }
 }

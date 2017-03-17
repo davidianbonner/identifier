@@ -16,7 +16,7 @@ abstract class AbstractIdentifier implements IdentifierInterface
      *
      * @return Identifier
      */
-    public static function fromString($string)
+    public static function instance($string)
     {
         return new static($string);
     }
