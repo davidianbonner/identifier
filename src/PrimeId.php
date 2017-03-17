@@ -7,7 +7,7 @@ use Jenssegers\Optimus\Optimus;
 use DBonner\Identifier\Contracts\AbstractIdentifier;
 use DBonner\Identifier\Contracts\IdentifierInterface;
 
-class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
+class PrimeId extends AbstractIdentifier implements IdentifierInterface
 {
     /**
      * @var Jenssegers\Optimus\Optimus
@@ -38,7 +38,7 @@ class PrimeIdentifier extends AbstractIdentifier implements IdentifierInterface
      *
      * @return string
      */
-    public function encode()
+    public static function encode()
     {
         return self::primeInstance()->encode($this->value);
     }
