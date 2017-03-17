@@ -38,9 +38,9 @@ class PrimeId extends AbstractIdentifier implements IdentifierInterface
      *
      * @return string
      */
-    public static function encode()
+    public function encode()
     {
-        return self::primeInstance()->encode($this->value);
+        return $this->primeInstance()->encode($this->value);
     }
 
     /**
